@@ -8,7 +8,7 @@ namespace Convert.Service
 
         public static double CalculateRNP(string infix)
         {
-            Stack<int> stack = new Stack<int>();
+            Stack<double> stack = new Stack<double>();
             
             string postfix;
             ConvertToRNPService.ConvertToRNP(ref infix, out postfix);
@@ -16,8 +16,8 @@ namespace Convert.Service
             for (int i = 0; i < postfix.Length; i++)
             {
                 var symbol = postfix[i];
-                int number;
-                bool success = Int32.TryParse(symbol.ToString(), out number);
+                double number;
+                bool success = Double.TryParse(symbol.ToString(), out number);
                 if (success)
                 {
                     stack.Push(number);
@@ -59,9 +59,9 @@ namespace Convert.Service
             return (stack.Count == 0);
         }
 
-        public static int Addition(int number1, int number2) => number1 + number2;
-        public static int Substraction(int number1, int number2) => number1 - number2;
-        public static int Multiply(int number1, int number2) => number1 * number2;
-        public static int Divide(int number1, int number2) => number1 / number2;
+        public static double Addition(double number1, double number2) => number1 + number2;
+        public static double Substraction(double number1, double number2) => number1 - number2;
+        public static double Multiply(double number1, double number2) => number1 * number2;
+        public static double Divide(double number1, double number2) => number1 / number2;
     }
 }

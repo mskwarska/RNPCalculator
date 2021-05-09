@@ -56,7 +56,7 @@ namespace Convert
             Console.WriteLine();
 
             Console.WriteLine("4+5/2-1");
-            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5/2"));
+            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5/2-1"));
 
             Console.ReadLine();
         }
