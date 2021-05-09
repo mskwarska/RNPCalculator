@@ -8,8 +8,10 @@ namespace Convert
     {
         static void Main(string[] args)
         {
+            /* Check my converter */
+            /*
             ConvertToRNPService convertToRNPService = new ConvertToRNPService();
-
+            Console.WriteLine("The calculator supports operators: +, -, *, / ");
             string infix = "";
             string postfix = "";
             if (args.Length == 1)
@@ -43,6 +45,20 @@ namespace Convert
                 System.Console.WriteLine();
                 Console.ReadLine();
             }
+            */
+
+            Console.WriteLine("4+5*2");
+            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5*2"));
+            Console.WriteLine();
+
+            Console.WriteLine("4+5/2");
+            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5/2"));
+            Console.WriteLine();
+
+            Console.WriteLine("4+5/2-1");
+            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5/2"));
+
+            Console.ReadLine();
         }
         
 

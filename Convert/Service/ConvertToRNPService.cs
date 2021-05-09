@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Convert.Service
 {
     class ConvertToRNPService
     {
-        public string ConvertToRNP(ref string infix, out string postfix)
+        public static string ConvertToRNP(ref string infix, out string postfix)
         {
-
-            int prio = 0;
+            // Infix is an equation which user enter
+            //To check my converter I use  online converter like https://scanftree.com/Data_Structure/prefix-postfix-infix-online-converter
+            int priority = 0;
             postfix = "";
             Stack<Char> stackRNP = new Stack<char>();
             for (int i = 0; i < infix.Length; i++)
             {
-                char ch = infix[i];
-                if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
+                char singleChar = infix[i];
+                if (singleChar == '+' || singleChar == '-' || singleChar == '*' || singleChar == '/')
                 {
                     if (stackRNP.Count <= 0)
-                        stackRNP.Push(ch);
+                        stackRNP.Push(singleChar);
                     else
                     {
                         if (stackRNP.Peek() == '*' || stackRNP.Peek() == '/')
-                            prio = 1;
+                            priority = 1;
                         else
-                            prio = 0;
-                        if (prio == 1)
+                            priority = 0;
+                        if (priority == 1)
                         {
-                            if (ch == '+' || ch == '-')
+                            if (singleChar == '+' || singleChar == '-')
                             {
                                 postfix += stackRNP.Pop();
                                 i--;
@@ -42,24 +40,24 @@ namespace Convert.Service
                         }
                         else
                         {
-                            if (ch == '+' || ch == '-')
+                            if (singleChar == '+' || singleChar == '-')
                             {
                                 postfix += stackRNP.Pop();
-                                stackRNP.Push(ch);
+                                stackRNP.Push(singleChar);
 
                             }
                             else
-                                stackRNP.Push(ch);
+                                stackRNP.Push(singleChar);
                         }
                     }
                 }
                 else
                 {
-                    postfix += ch;
+                    postfix += singleChar;
                 }
             }
-            int len = stackRNP.Count;
-            for (int j = 0; j < len; j++)
+            int stackLength = stackRNP.Count;
+            for (int j = 0; j < stackLength; j++)
                 postfix += stackRNP.Pop();
             return postfix;
         }
