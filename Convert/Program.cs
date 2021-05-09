@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Convert.Service;
+﻿using Convert.Service;
+using System;
 
 namespace Convert
 {
@@ -8,45 +7,15 @@ namespace Convert
     {
         static void Main(string[] args)
         {
-            /* Check my converter */
-            /*
-            ConvertToRNPService convertToRNPService = new ConvertToRNPService();
-            Console.WriteLine("The calculator supports operators: +, -, *, / ");
-            string infix = "";
-            string postfix = "";
-            if (args.Length == 1)
-            {
-                infix = args[0];
-                convertToRNPService.ConvertToRNP(ref infix, out postfix);
-                System.Console.WriteLine("InFix  :\t" + infix);
-                System.Console.WriteLine("PostFix:\t" + postfix);
-            }
-            else
-            {
-                infix = "4+5*2";
-                convertToRNPService.ConvertToRNP(ref infix, out postfix);
-                System.Console.WriteLine("InFix   :\t" + infix);
-                System.Console.WriteLine("PostFix :\t" + postfix);
-                System.Console.WriteLine();
-                infix = "4+5/2";
-                convertToRNPService.ConvertToRNP(ref infix, out postfix);
-                System.Console.WriteLine("InFix   :\t" + infix);
-                System.Console.WriteLine("PostFix :\t" + postfix);
-                System.Console.WriteLine();
-                infix = "4+5/2-1";
-                convertToRNPService.ConvertToRNP(ref infix, out postfix);
-                System.Console.WriteLine("InFix   :\t" + infix);
-                System.Console.WriteLine("PostFix :\t" + postfix);
-                System.Console.WriteLine();
-                infix = "a-b/c*d-e--f/h*i++j-/k";
-                convertToRNPService.ConvertToRNP(ref infix, out postfix);
-                System.Console.WriteLine("InFix   :\t" + infix);
-                System.Console.WriteLine("PostFix :\t" + postfix);
-                System.Console.WriteLine();
-                Console.ReadLine();
-            }
-            */
+            TestEquation();
 
+            EnterEquation();
+
+            Console.ReadLine();
+        }
+
+        public static void TestEquation()
+        {
             Console.WriteLine("4+5*2");
             Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5*2"));
             Console.WriteLine();
@@ -57,10 +26,17 @@ namespace Convert
 
             Console.WriteLine("4+5/2-1");
             Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP("4+5/2-1"));
+            Console.WriteLine();
 
-            Console.ReadLine();
         }
-        
+
+        public static void EnterEquation()
+        {
+            Console.WriteLine("Enter your equation:");
+            string equation = Console.ReadLine();
+            Console.WriteLine("The result of the equation is: " + CalculateService.CalculateRNP(equation));
+            Console.WriteLine();
+        }
 
     }
 }
